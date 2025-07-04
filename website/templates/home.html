@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}YourNotesApp{% endblock %}
+
+{% block content %}
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="note">
+    {% for note in user.notes %}
+        <li class="list-group-item">{{ note.data }}
+            <button type="button" class="close" onclick="deleteNote({{ note.id }})">
+                <span aria-hidden="true">&times;</span>
+            </button>        </li>  <!-- Corrected syntax -->
+    {% endfor %}
+</ul>
+
+<form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br/>
+    <div align='center'>
+        <button type="submit" class="btn btn-primary">Add note</button>  <!-- Removed incorrect comma -->
+    </div>
+</form>
+{% endblock %}
