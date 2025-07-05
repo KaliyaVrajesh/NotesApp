@@ -16,7 +16,7 @@ def login():
         if user:
             if check_password_hash(user.Password, password):
                 flash('Logged in Successfully!', category='success')
-                login_user(user, remember='True')
+                login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect Email or Password, Try Again', category='error')
